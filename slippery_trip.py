@@ -35,7 +35,7 @@ def get_max_coins(R: int, C: int, G: List[List[str]]) -> int:
         # Return max count, whether you can go down, and whether row is terminal.
         ncols = len(row)
         assert ncols == C
-        first_down, max_c, rights = -1, 0, 0, 0
+        first_down, max_c, rights = -1, 0, 0
         for ii, cc in enumerate(row):
             if cc == "v":
                 first_down = ii
@@ -80,7 +80,7 @@ def get_max_coins(R: int, C: int, G: List[List[str]]) -> int:
         stack.append((m_r, has_down))
     running_sum = 0
     while stack:
-        m_r, has_down, terminal = stack.pop()
+        m_r, has_down = stack.pop()
         if not has_down:
             running_sum = max(min(1, m_r) + running_sum, m_r)
         else:
